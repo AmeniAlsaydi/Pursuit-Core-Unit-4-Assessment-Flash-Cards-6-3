@@ -41,9 +41,8 @@ class CreateController: UIViewController {
     private func createCard() {
         
         guard let title = createView.questionTextfeild.text, !title.isEmpty, let fact1 = createView.fact1Textview.text, !fact1.isEmpty, let fact2 = createView.fact2Textview.text, !fact2.isEmpty else {
-           
-            // present alert to tell them smth is nil
             
+            self.showAlert(title: "Check Fields 🤔", message: "All fields must be filled")
             return
         }
         

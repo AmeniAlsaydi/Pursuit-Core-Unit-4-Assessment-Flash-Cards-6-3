@@ -22,6 +22,7 @@
 		B7874E4E23F3069900E7EA64 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7874E4D23F3069900E7EA64 /* CollectionView.swift */; };
 		B7874E5023F30D7F00E7EA64 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7874E4F23F30D7F00E7EA64 /* CardCell.swift */; };
 		B7874E5423F33E1A00E7EA64 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7874E5323F33E1A00E7EA64 /* CreateView.swift */; };
+		B7952E2723F35BAF007740A0 /* AlertExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7952E2623F35BAF007740A0 /* AlertExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		B7874E4D23F3069900E7EA64 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		B7874E4F23F30D7F00E7EA64 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		B7874E5323F33E1A00E7EA64 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
+		B7952E2623F35BAF007740A0 /* AlertExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 		5790239623F2EE39000AA216 /* Unit4Assessment */ = {
 			isa = PBXGroup;
 			children = (
+				B7952E2523F35B1C007740A0 /* Extensiions */,
 				B7874E4423F3024300E7EA64 /* Views */,
 				B7874E4323F3023A00E7EA64 /* Controllers */,
 				B7874E3B23F2FD4F00E7EA64 /* Model */,
@@ -160,6 +163,14 @@
 				B7874E5323F33E1A00E7EA64 /* CreateView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B7952E2523F35B1C007740A0 /* Extensiions */ = {
+			isa = PBXGroup;
+			children = (
+				B7952E2623F35BAF007740A0 /* AlertExt.swift */,
+			);
+			path = Extensiions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +285,7 @@
 				B7874E4C23F3031E00E7EA64 /* TabController.swift in Sources */,
 				B7874E4823F302A000E7EA64 /* CreateController.swift in Sources */,
 				5790239823F2EE39000AA216 /* AppDelegate.swift in Sources */,
+				B7952E2723F35BAF007740A0 /* AlertExt.swift in Sources */,
 				B7874E5023F30D7F00E7EA64 /* CardCell.swift in Sources */,
 				B7874E4A23F302AC00E7EA64 /* SearchController.swift in Sources */,
 				5790239A23F2EE39000AA216 /* SceneDelegate.swift in Sources */,

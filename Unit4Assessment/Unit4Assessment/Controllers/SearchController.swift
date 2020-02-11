@@ -51,7 +51,6 @@ class SearchController: UIViewController {
             }
         }
     }
-    
 }
 
 extension SearchController: UICollectionViewDataSource {
@@ -99,6 +98,8 @@ extension SearchController: UICollectionViewDelegateFlowLayout {
 
 extension SearchController: CardCellDelegate {
     func didSelectCard(_ savedCardCell: CardCell, card: Card) {
+        
+        self.showAlert(title: "Saved", message: "Card has been added to your cards!")
         
         do {
             try datapersistance.createItem(card)

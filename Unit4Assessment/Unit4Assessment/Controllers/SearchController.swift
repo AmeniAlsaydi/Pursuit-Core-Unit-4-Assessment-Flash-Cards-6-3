@@ -11,6 +11,13 @@ import UIKit
 class SearchController: UIViewController {
     
     private let searchView = SearchView()
+    private var cards = [Card]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.searchView.collectionView.reloadData()
+            }
+        }
+    }
     
     override func loadView() {
         view = searchView
@@ -27,20 +34,48 @@ class SearchController: UIViewController {
         searchView.collectionView.delegate = self
         
         searchView.collectionView.register(CardCell.self, forCellWithReuseIdentifier: "cardCell")
+        loadCards() 
+    }
+    
+    private func loadCards() {
+        CardsApiClient.getCards { (result) in
+            switch result {
+            case .failure(let appError):
+                print(appError)
+            case .success(let cards):
+                self.cards = cards
+            }
+        }
     }
     
 }
 
 extension SearchController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return cards.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as? CardCell else {
             fatalError("could not down cast to custom CardCell")
         }
-        cell.backgroundColor = .red
+        
+        let card = cards[indexPath.row]
+        cell.configureCell(card: card)
+        
+        // ui of cell
+        cell.backgroundColor = .white
+        cell.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        cell.layer.cornerRadius = 10
+        cell.layer.borderWidth = 1
+        cell.contentView.layer.masksToBounds = true
+        cell.layer.shadowColor =  #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        cell.layer.shadowRadius = 2.0
+        cell.layer.shadowOpacity = 1.0
+        cell.layer.masksToBounds = false
+        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds,cornerRadius:cell.contentView.layer.cornerRadius).cgPath
+        
         return cell
     }
 }
@@ -57,7 +92,14 @@ extension SearchController: UICollectionViewDelegateFlowLayout {
         
         return CGSize(width: itemWidth, height: itemHeight)
     }
+
     
+// FIX!!! doesnt work
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        // padding sround collectionview
+//        return UIEdgeInsets(top: 10, left: 5, bottom: 5, right: 5)
+//    }
     
     
 }

@@ -13,12 +13,16 @@ class CardCell: UICollectionViewCell {
     public lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Title"
+        label.numberOfLines = 0
+        label.textAlignment = .center
         return label
     }()
     
     public lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "Description"
+        label.numberOfLines = 0
+        label.textAlignment = .center
         return label
     }()
     
@@ -65,6 +69,10 @@ class CardCell: UICollectionViewCell {
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 8)
         ])
         
+    }
+    
+    public func configureCell(card: Card) {
+        titleLabel.text = card.cardTitle
     }
     
     

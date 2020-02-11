@@ -12,6 +12,9 @@ class CardsController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
+
+        navigationItem.title = "My Cards"
         view.backgroundColor = .red
 
 

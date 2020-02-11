@@ -13,6 +13,9 @@ class CreateController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .orange
+        navigationController?.navigationBar.prefersLargeTitles = true
+
+        navigationItem.title = "Create"
 
     
     }

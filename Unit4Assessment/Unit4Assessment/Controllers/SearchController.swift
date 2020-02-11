@@ -98,9 +98,12 @@ extension SearchController: UICollectionViewDelegateFlowLayout {
 
 extension SearchController: CardCellDelegate {
     func didSaveCard(_ savedCardCell: CardCell, card: Card) {
-        print("Hello")
         
-        // persistance? 
+        do {
+            try datapersistance.createItem(card)
+        } catch {
+            print("persistance error: \(error)")
+        }
     }
     
     

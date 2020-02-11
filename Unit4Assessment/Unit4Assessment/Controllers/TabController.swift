@@ -41,11 +41,5 @@ class TabController: UITabBarController {
         viewControllers = [UINavigationController(rootViewController: cardsVC),
                            UINavigationController(rootViewController: createVC),
                            UINavigationController(rootViewController: searchVC)]
-        
-
-       
     }
-    
-
-
 }

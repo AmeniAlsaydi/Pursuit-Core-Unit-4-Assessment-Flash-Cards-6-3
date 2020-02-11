@@ -21,6 +21,7 @@
 		B7874E4C23F3031E00E7EA64 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7874E4B23F3031E00E7EA64 /* TabController.swift */; };
 		B7874E4E23F3069900E7EA64 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7874E4D23F3069900E7EA64 /* CollectionView.swift */; };
 		B7874E5023F30D7F00E7EA64 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7874E4F23F30D7F00E7EA64 /* CardCell.swift */; };
+		B7874E5423F33E1A00E7EA64 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7874E5323F33E1A00E7EA64 /* CreateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		B7874E4B23F3031E00E7EA64 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		B7874E4D23F3069900E7EA64 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		B7874E4F23F30D7F00E7EA64 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
+		B7874E5323F33E1A00E7EA64 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 			children = (
 				B7874E4D23F3069900E7EA64 /* CollectionView.swift */,
 				B7874E4F23F30D7F00E7EA64 /* CardCell.swift */,
+				B7874E5323F33E1A00E7EA64 /* CreateView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7874E5423F33E1A00E7EA64 /* CreateView.swift in Sources */,
 				B7874E4223F2FE2600E7EA64 /* CardsApiClient.swift in Sources */,
 				B7874E4E23F3069900E7EA64 /* CollectionView.swift in Sources */,
 				B7874E4C23F3031E00E7EA64 /* TabController.swift in Sources */,

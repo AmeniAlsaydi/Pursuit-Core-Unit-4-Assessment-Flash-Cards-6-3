@@ -42,8 +42,6 @@ class CardsController: UIViewController {
             print("error getting saved items \(error)")
         }
     }
-    
-
 }
 
 
@@ -88,7 +86,6 @@ extension CardsController: CardCellDelegate {
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) {
             alertAction in
              self.deleteCard(card: card)
-            print("ok")
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
@@ -110,6 +107,18 @@ extension CardsController: CardCellDelegate {
         } catch {
             print("issue deleting card: \(error)")
         }
+    }
+    
+    
+}
+
+extension CardsController: DataPersistenceDelegate {
+    func didSaveItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
+        getCards()
+    }
+    
+    func didDeleteItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
+        getCards()
     }
     
     

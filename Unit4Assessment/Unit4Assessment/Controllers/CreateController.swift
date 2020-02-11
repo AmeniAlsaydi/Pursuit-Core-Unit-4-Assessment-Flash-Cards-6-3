@@ -13,16 +13,26 @@ import DataPersistence
 class CreateController: UIViewController {
     
     public var datapersistance: DataPersistence<Card>!
+    private var createView = CreateView()
 
+    override func loadView() {
+        view = createView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .orange
+        view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
-
         navigationItem.title = "Create"
-
-    
+        createView.questionTextfeild.delegate = self
     }
 
+}
+
+extension CreateController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("Hello")
+        resignFirstResponder()
+        return true 
+    }
 }

@@ -18,18 +18,25 @@ class CreateView: UIView {
         return textfeild
     }()
     
-    public lazy var fact1Textfeild: UITextView =  {
+    public lazy var fact1Textview: UITextView =  {
         let textview = UITextView()
         textview.backgroundColor = #colorLiteral(red: 0.8528404832, green: 0.8477713466, blue: 0.8567374349, alpha: 1)
         textview.layer.cornerRadius = 5
         return textview
     }()
     
-    public lazy var fact2Textfeild: UITextView =  {
+    public lazy var fact2Textview: UITextView =  {
         let textview = UITextView()
         textview.backgroundColor = #colorLiteral(red: 0.8528404832, green: 0.8477713466, blue: 0.8567374349, alpha: 1)
         textview.layer.cornerRadius = 5
         return textview
+    }()
+    
+    public lazy var createButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = #colorLiteral(red: 0.8102939129, green: 0.7310073972, blue: 0.8809230924, alpha: 1)
+        button.setTitle("Add Question", for: .normal)
+        return button
     }()
     
     override init(frame: CGRect) {
@@ -46,6 +53,7 @@ class CreateView: UIView {
         titleConstraints()
         fact1Constraints()
         fact2Constraints()
+        addButtonConstraints()
     }
     
     private func titleConstraints() {
@@ -62,27 +70,38 @@ class CreateView: UIView {
     
     
     private func fact1Constraints() {
-        addSubview(fact1Textfeild)
-        fact1Textfeild.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(fact1Textview)
+        fact1Textview.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            fact1Textfeild.topAnchor.constraint(equalTo: questionTextfeild.bottomAnchor, constant: 20),
-            fact1Textfeild.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            fact1Textfeild.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            fact1Textfeild.heightAnchor.constraint(equalToConstant: 70)
+            fact1Textview.topAnchor.constraint(equalTo: questionTextfeild.bottomAnchor, constant: 20),
+            fact1Textview.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            fact1Textview.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            fact1Textview.heightAnchor.constraint(equalToConstant: 70)
         ])
     }
     
     private func fact2Constraints() {
-           addSubview(fact2Textfeild)
-           fact2Textfeild.translatesAutoresizingMaskIntoConstraints = false
+           addSubview(fact2Textview)
+           fact2Textview.translatesAutoresizingMaskIntoConstraints = false
            
            NSLayoutConstraint.activate([
-               fact2Textfeild.topAnchor.constraint(equalTo: fact1Textfeild.bottomAnchor, constant: 20),
-               fact2Textfeild.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-               fact2Textfeild.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-               fact2Textfeild.heightAnchor.constraint(equalToConstant: 70)
+               fact2Textview.topAnchor.constraint(equalTo: fact1Textview.bottomAnchor, constant: 20),
+               fact2Textview.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+               fact2Textview.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+               fact2Textview.heightAnchor.constraint(equalToConstant: 70)
            ])
        }
 
+    private func addButtonConstraints() {
+        addSubview(createButton)
+        createButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            createButton.topAnchor.constraint(equalTo: fact2Textview.bottomAnchor, constant: 20),
+            createButton.heightAnchor.constraint(equalToConstant: 30),
+            createButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
+            createButton.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
+    }
 }

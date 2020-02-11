@@ -33,13 +33,14 @@ class CreateController: UIViewController {
         
         // navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark.circle"), style: .plain, target: self, action: nil)
         createView.questionTextfeild.delegate = self
+        createView.fact1Textview.delegate = self
+        createView.fact2Textview.delegate = self
         createView.createButton.addTarget(self, action: #selector(createButtonClicked(_:)), for: .touchUpInside)
         createView.addGestureRecognizer(tapGesture)
     }
     
     @objc func createButtonClicked(_ sender: UIButton) {
         createCard()
-        createView.questionTextfeild.resignFirstResponder()
     }
     
     @objc private func didTap(_ gesture: UITapGestureRecognizer) {
@@ -61,6 +62,12 @@ class CreateController: UIViewController {
         } catch {
             print("error saving new card: \(error)")
         }
+        
+        createView.questionTextfeild.text = ""
+        createView.fact1Textview.text = ""
+        createView.fact2Textview.text = ""
+        resignFirstResponder()
+        
     }
 }
 
@@ -68,4 +75,8 @@ extension CreateController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return true
     }
+}
+
+extension CreateController: UITextViewDelegate {
+    
 }

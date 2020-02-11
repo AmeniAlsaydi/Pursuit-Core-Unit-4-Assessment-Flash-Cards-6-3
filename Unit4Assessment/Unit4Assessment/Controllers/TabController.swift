@@ -17,7 +17,7 @@ class TabController: UITabBarController {
        let vc = CardsController()
          vc.datapersistance = datapersistance
           vc.datapersistance.delegate = vc
-        vc.tabBarItem = UITabBarItem(title: "Cards", image: UIImage(systemName: "rectangle.on.rectangle.angled"), tag: 0)
+        vc.tabBarItem = UITabBarItem(title: "My Cards", image: UIImage(systemName: "rectangle.on.rectangle.angled"), tag: 0)
         return vc
     }()
     

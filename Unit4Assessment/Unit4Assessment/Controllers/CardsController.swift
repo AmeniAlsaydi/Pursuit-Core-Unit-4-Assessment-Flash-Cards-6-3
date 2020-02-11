@@ -27,7 +27,7 @@ class CardsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .white
         navigationItem.title = "My Cards"
         cardsView.collectionView.dataSource = self
         cardsView.collectionView.delegate = self
@@ -68,12 +68,17 @@ extension CardsController: UICollectionViewDelegateFlowLayout {
         
         let maxSize: CGSize = UIScreen.main.bounds.size
         
-        let itemWidth = maxSize.width
+        let itemWidth = maxSize.width * 0.95
         
         let itemHeight = maxSize.height * 0.40
         
         return CGSize(width: itemWidth, height: itemHeight)
     }
+    
+       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+           return UIEdgeInsets(top: 10, left: 0, bottom: 5, right: 0)
+       }
+       
 }
 
 

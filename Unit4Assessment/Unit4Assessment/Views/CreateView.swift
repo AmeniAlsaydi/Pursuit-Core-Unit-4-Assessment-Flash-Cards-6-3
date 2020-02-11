@@ -36,6 +36,7 @@ class CreateView: UIView {
         let button = UIButton()
         button.backgroundColor = #colorLiteral(red: 0.8102939129, green: 0.7310073972, blue: 0.8809230924, alpha: 1)
         button.setTitle("Add Question", for: .normal)
+        button.layer.cornerRadius = 6
         return button
     }()
     

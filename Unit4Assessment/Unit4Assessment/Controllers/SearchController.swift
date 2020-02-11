@@ -32,7 +32,7 @@ class SearchController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
 
         navigationItem.title = "Find"
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .white
         
         searchView.collectionView.dataSource = self
         searchView.collectionView.delegate = self
@@ -42,12 +42,12 @@ class SearchController: UIViewController {
     }
     
     private func loadCards() {
-        CardsApiClient.getCards { (result) in
+        CardsApiClient.getCards { [weak self] (result) in
             switch result {
             case .failure(let appError):
                 print(appError)
             case .success(let cards):
-                self.cards = cards
+                self?.cards = cards
             }
         }
     }
@@ -77,7 +77,7 @@ extension SearchController: UICollectionViewDelegateFlowLayout {
         
         let maxSize: CGSize = UIScreen.main.bounds.size
         
-        let itemWidth = maxSize.width
+        let itemWidth = maxSize.width * 0.95
         
         let itemHeight = maxSize.height * 0.40
         
@@ -85,12 +85,9 @@ extension SearchController: UICollectionViewDelegateFlowLayout {
     }
 
     
-// FIX!!! doesnt work
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        // padding sround collectionview
-//        return UIEdgeInsets(top: 10, left: 5, bottom: 5, right: 5)
-//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 0, bottom: 5, right: 0)
+    }
     
     
 }
@@ -99,13 +96,22 @@ extension SearchController: UICollectionViewDelegateFlowLayout {
 extension SearchController: CardCellDelegate {
     func didSelectCard(_ savedCardCell: CardCell, card: Card) {
         
-        self.showAlert(title: "Saved", message: "Card has been added to your cards!")
         
-        do {
-            try datapersistance.createItem(card)
-        } catch {
-            print("persistance error: \(error)")
+        let itemHasBeenSaved = datapersistance.hasItemBeenSaved(card)
+        
+        if itemHasBeenSaved {
+            self.showAlert(title: "Already saved!", message: "This Card is already in Your Cards")
+
+        } else {
+            self.showAlert(title: "Saved", message: "Card has been added to your cards!")
+
+            do {
+                try datapersistance.createItem(card)
+            } catch {
+                print("persistance error: \(error)")
+            }
         }
+        
     }
     
     

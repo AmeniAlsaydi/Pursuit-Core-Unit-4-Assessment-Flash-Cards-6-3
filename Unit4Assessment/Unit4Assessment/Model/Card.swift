@@ -17,4 +17,8 @@ struct Card: Codable & Equatable {
     let id: String?
     let cardTitle: String
     let facts: [String]
+    
+    static func ==(lhs: Card, rhs: Card) -> Bool {
+      return lhs.cardTitle == rhs.cardTitle
+    }
 }

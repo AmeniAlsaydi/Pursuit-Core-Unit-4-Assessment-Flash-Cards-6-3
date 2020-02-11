@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchView: UIView {
+class CvView: UIView {
 
     public lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()

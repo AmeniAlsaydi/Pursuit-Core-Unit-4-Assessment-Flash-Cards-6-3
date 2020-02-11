@@ -8,8 +8,13 @@
 
 import UIKit
 
+enum vcSource {
+    case saved
+    case search
+}
+
 protocol CardCellDelegate: AnyObject {
-    func didSaveCard(_ savedCardCell: CardCell, card: Card)
+    func didSelectCard(_ savedCardCell: CardCell, card: Card)
 }
 
 class CardCell: UICollectionViewCell {
@@ -18,10 +23,11 @@ class CardCell: UICollectionViewCell {
     
     public weak var delegate: CardCellDelegate?
     
+    public var cellButtonSouce: vcSource = .saved
+    
     public lazy var addButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "plus.rectangle.on.rectangle"), for: .normal)
-        button.addTarget(self, action: #selector(didSaveCard(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didSelectCard(_:)), for: .touchUpInside)
         button.tintColor = .black
         return button
     }()
@@ -82,9 +88,10 @@ class CardCell: UICollectionViewCell {
         self.flip()
     }
     
-    @objc private func didSaveCard(_ sender: UIButton) {
-        delegate?.didSaveCard(self, card: currentCard)
+    @objc private func didSelectCard(_ sender: UIButton) {
+        delegate?.didSelectCard(self, card: currentCard)
     }
+    
     
     private func flip() {
         let duration: Double = 1.0
@@ -110,7 +117,7 @@ class CardCell: UICollectionViewCell {
             titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 8)
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
         ])
         
         
@@ -124,7 +131,7 @@ class CardCell: UICollectionViewCell {
             descriptionLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             descriptionLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 8)
+            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
         ])
         
     }
@@ -142,10 +149,17 @@ class CardCell: UICollectionViewCell {
         ])
     }
     
-    public func configureCell(card: Card) {
+    public func configureCell(card: Card, source: vcSource) {
         currentCard = card 
         titleLabel.text = card.cardTitle
         descriptionLabel.text = card.facts.first
+        
+        switch source {
+        case .search:
+            self.addButton.setImage(UIImage(systemName: "plus.rectangle.on.rectangle"), for: .normal)
+        case .saved:
+            self.addButton.setImage(UIImage(systemName: "ellipsis"), for: .normal)
+        }
         
         
     // Cell UI

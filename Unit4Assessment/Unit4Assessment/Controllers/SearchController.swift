@@ -13,7 +13,8 @@ class SearchController: UIViewController {
     
     public var datapersistance: DataPersistence<Card>!
 
-    private let searchView = SearchView()
+    private let searchView = CvView()
+    
     private var cards = [Card]() {
         didSet {
             DispatchQueue.main.async {
@@ -65,7 +66,7 @@ extension SearchController: UICollectionViewDataSource {
         
         let card = cards[indexPath.row]
         cell.delegate = self 
-        cell.configureCell(card: card)
+        cell.configureCell(card: card, source: .search)
         
         return cell
     }
@@ -97,7 +98,7 @@ extension SearchController: UICollectionViewDelegateFlowLayout {
 
 
 extension SearchController: CardCellDelegate {
-    func didSaveCard(_ savedCardCell: CardCell, card: Card) {
+    func didSelectCard(_ savedCardCell: CardCell, card: Card) {
         
         do {
             try datapersistance.createItem(card)

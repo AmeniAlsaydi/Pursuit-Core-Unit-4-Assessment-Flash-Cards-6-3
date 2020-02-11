@@ -19,7 +19,7 @@
 		B7874E4823F302A000E7EA64 /* CreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7874E4723F302A000E7EA64 /* CreateController.swift */; };
 		B7874E4A23F302AC00E7EA64 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7874E4923F302AC00E7EA64 /* SearchController.swift */; };
 		B7874E4C23F3031E00E7EA64 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7874E4B23F3031E00E7EA64 /* TabController.swift */; };
-		B7874E4E23F3069900E7EA64 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7874E4D23F3069900E7EA64 /* SearchView.swift */; };
+		B7874E4E23F3069900E7EA64 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7874E4D23F3069900E7EA64 /* CollectionView.swift */; };
 		B7874E5023F30D7F00E7EA64 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7874E4F23F30D7F00E7EA64 /* CardCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +49,7 @@
 		B7874E4723F302A000E7EA64 /* CreateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateController.swift; sourceTree = "<group>"; };
 		B7874E4923F302AC00E7EA64 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		B7874E4B23F3031E00E7EA64 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
-		B7874E4D23F3069900E7EA64 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		B7874E4D23F3069900E7EA64 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		B7874E4F23F30D7F00E7EA64 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,7 +153,7 @@
 		B7874E4423F3024300E7EA64 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B7874E4D23F3069900E7EA64 /* SearchView.swift */,
+				B7874E4D23F3069900E7EA64 /* CollectionView.swift */,
 				B7874E4F23F30D7F00E7EA64 /* CardCell.swift */,
 			);
 			path = Views;
@@ -266,7 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7874E4223F2FE2600E7EA64 /* CardsApiClient.swift in Sources */,
-				B7874E4E23F3069900E7EA64 /* SearchView.swift in Sources */,
+				B7874E4E23F3069900E7EA64 /* CollectionView.swift in Sources */,
 				B7874E4C23F3031E00E7EA64 /* TabController.swift in Sources */,
 				B7874E4823F302A000E7EA64 /* CreateController.swift in Sources */,
 				5790239823F2EE39000AA216 /* AppDelegate.swift in Sources */,

@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import DataPersistence
+
 
 class CreateController: UIViewController {
+    
+    public var datapersistance: DataPersistence<Card>!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import DataPersistence
 
 class SearchController: UIViewController {
     
+    public var datapersistance: DataPersistence<Card>!
+
     private let searchView = SearchView()
     private var cards = [Card]() {
         didSet {
@@ -96,6 +99,8 @@ extension SearchController: UICollectionViewDelegateFlowLayout {
 extension SearchController: CardCellDelegate {
     func didSaveCard(_ savedCardCell: CardCell, card: Card) {
         print("Hello")
+        
+        // persistance? 
     }
     
     

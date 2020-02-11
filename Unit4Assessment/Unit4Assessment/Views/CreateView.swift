@@ -12,22 +12,28 @@ class CreateView: UIView {
 
     public lazy var questionTextfeild: UITextField =  {
         let textfeild = UITextField()
-        textfeild.placeholder = "Enter quiz question"
-        textfeild.backgroundColor = #colorLiteral(red: 0.8528404832, green: 0.8477713466, blue: 0.8567374349, alpha: 1)
+        textfeild.placeholder = " Enter quiz question"
+        textfeild.layer.borderWidth = 1.0
+        textfeild.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        textfeild.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         textfeild.layer.cornerRadius = 5
         return textfeild
     }()
     
     public lazy var fact1Textview: UITextView =  {
         let textview = UITextView()
-        textview.backgroundColor = #colorLiteral(red: 0.8528404832, green: 0.8477713466, blue: 0.8567374349, alpha: 1)
+        textview.layer.borderWidth = 1.0
+        textview.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        textview.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         textview.layer.cornerRadius = 5
         return textview
     }()
     
     public lazy var fact2Textview: UITextView =  {
         let textview = UITextView()
-        textview.backgroundColor = #colorLiteral(red: 0.8528404832, green: 0.8477713466, blue: 0.8567374349, alpha: 1)
+        textview.layer.borderWidth = 1.0
+        textview.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        textview.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         textview.layer.cornerRadius = 5
         return textview
     }()

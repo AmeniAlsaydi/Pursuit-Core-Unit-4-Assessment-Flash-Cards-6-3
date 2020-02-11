@@ -85,7 +85,12 @@ extension CardsController: CardCellDelegate {
         
         let alertController = UIAlertController(title: "What you like to do?", message: nil, preferredStyle: .actionSheet)
         
-        let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: nil)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) {
+            alertAction in
+             self.deleteCard(card: card)
+            print("ok")
+        }
+
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         
         alertController.addAction(deleteAction)
@@ -93,6 +98,18 @@ extension CardsController: CardCellDelegate {
         
         present(alertController, animated: true)
         
+    }
+    
+    private func deleteCard(card: Card) {
+        guard let index = savedCards.firstIndex(of: card) else {
+            fatalError("no index")
+        }
+        
+        do {
+            try datapersistance.deleteItem(at: index)
+        } catch {
+            print("issue deleting card: \(error)")
+        }
     }
     
     

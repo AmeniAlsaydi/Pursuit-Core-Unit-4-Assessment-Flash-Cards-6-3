@@ -14,6 +14,12 @@ class CreateController: UIViewController {
     
     public var datapersistance: DataPersistence<Card>!
     private var createView = CreateView()
+    
+    private lazy var tapGesture: UITapGestureRecognizer = {
+        let gesture = UITapGestureRecognizer()
+        gesture.addTarget(self , action: #selector(didTap(_:)))
+        return gesture
+    }()
 
     override func loadView() {
         view = createView
@@ -25,15 +31,19 @@ class CreateController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Create Card"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark.circle"), style: .plain, target: self, action: nil)
+        // navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark.circle"), style: .plain, target: self, action: nil)
         createView.questionTextfeild.delegate = self
         createView.createButton.addTarget(self, action: #selector(createButtonClicked(_:)), for: .touchUpInside)
+        createView.addGestureRecognizer(tapGesture)
     }
     
     @objc func createButtonClicked(_ sender: UIButton) {
         createCard()
+        createView.questionTextfeild.resignFirstResponder()
+    }
+    
+    @objc private func didTap(_ gesture: UITapGestureRecognizer) {
         resignFirstResponder()
-        
     }
     
     private func createCard() {

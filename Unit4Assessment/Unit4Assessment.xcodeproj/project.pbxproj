@@ -23,6 +23,7 @@
 		B7874E5023F30D7F00E7EA64 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7874E4F23F30D7F00E7EA64 /* CardCell.swift */; };
 		B7874E5423F33E1A00E7EA64 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7874E5323F33E1A00E7EA64 /* CreateView.swift */; };
 		B7952E2723F35BAF007740A0 /* AlertExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7952E2623F35BAF007740A0 /* AlertExt.swift */; };
+		B7952E2923F36E3A007740A0 /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7952E2823F36E3A007740A0 /* Empty.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		B7874E4F23F30D7F00E7EA64 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		B7874E5323F33E1A00E7EA64 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		B7952E2623F35BAF007740A0 /* AlertExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExt.swift; sourceTree = "<group>"; };
+		B7952E2823F36E3A007740A0 /* Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Empty.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				B7874E4D23F3069900E7EA64 /* CollectionView.swift */,
+				B7952E2823F36E3A007740A0 /* Empty.swift */,
 				B7874E4F23F30D7F00E7EA64 /* CardCell.swift */,
 				B7874E5323F33E1A00E7EA64 /* CreateView.swift */,
 			);
@@ -288,6 +291,7 @@
 				B7952E2723F35BAF007740A0 /* AlertExt.swift in Sources */,
 				B7874E5023F30D7F00E7EA64 /* CardCell.swift in Sources */,
 				B7874E4A23F302AC00E7EA64 /* SearchController.swift in Sources */,
+				B7952E2923F36E3A007740A0 /* Empty.swift in Sources */,
 				5790239A23F2EE39000AA216 /* SceneDelegate.swift in Sources */,
 				B7874E3D23F2FD6500E7EA64 /* Card.swift in Sources */,
 				B7874E4623F3029400E7EA64 /* CardsController.swift in Sources */,

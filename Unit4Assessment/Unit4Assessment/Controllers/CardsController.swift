@@ -15,6 +15,14 @@ class CardsController: UIViewController {
     private var savedCards = [Card]() {
         didSet {
             cardsView.collectionView.reloadData()
+            
+            if savedCards.isEmpty {
+                // set up emptyview on the collection view back ground view
+                cardsView.collectionView.backgroundView = EmptyView(title: "Saved Cards", message: "Nothing saved! Go Create some or Search and save!")
+                } else {
+                // remove empty view
+                cardsView.collectionView.backgroundView = nil
+            }
         }
     }
     

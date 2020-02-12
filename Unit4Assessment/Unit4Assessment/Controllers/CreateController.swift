@@ -10,7 +10,7 @@ import UIKit
 import DataPersistence
 
 
-class CreateController: UIViewController {
+class CreateController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
     public var datapersistance: DataPersistence<Card>!
     private var createView = CreateView()
@@ -44,7 +44,9 @@ class CreateController: UIViewController {
     }
     
     @objc private func didTap(_ gesture: UITapGestureRecognizer) {
-        resignFirstResponder()
+        createView.fact1Textview.resignFirstResponder()
+        createView.fact2Textview.resignFirstResponder()
+        createView.questionTextfeild.resignFirstResponder()
     }
     
     private func createCard() {
@@ -66,17 +68,7 @@ class CreateController: UIViewController {
         createView.questionTextfeild.text = ""
         createView.fact1Textview.text = ""
         createView.fact2Textview.text = ""
-        resignFirstResponder()
-        
+        resignFirstResponder() 
     }
 }
 
-extension CreateController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return true
-    }
-}
-
-extension CreateController: UITextViewDelegate {
-    
-}
